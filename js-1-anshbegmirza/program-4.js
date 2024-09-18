@@ -5,11 +5,15 @@
 // arr2 = [4, 2]
 
 // Expected output: [1, 2, 3, 4, 5]
+
 'use strict';
 const arr1 = [-9, -5, 1];
 const arr2 = [4, -2];
-const arr3 = [];
+const ip3 = [3, 5, 1];
+const ip2 = [4, 2];
 
+
+//Sorting function
 const bubbleSort = function (arr) {
   let isSwapped;
   do {
@@ -28,7 +32,9 @@ const bubbleSort = function (arr) {
 }
 
 
+//Merge two arrays
 const mergeArrays = function (arr1, arr2) {
+  const arr3 = [];
   for (let i = 0; i < arr1.length; i++) {
     arr3.push(arr1[i])
   }
@@ -38,4 +44,8 @@ const mergeArrays = function (arr1, arr2) {
   console.log(bubbleSort(arr3));
 
 }
+
+console.log(`First Input`);
 mergeArrays(arr1, arr2);
+console.log(`Second INPUT`);
+mergeArrays(ip2, ip3);

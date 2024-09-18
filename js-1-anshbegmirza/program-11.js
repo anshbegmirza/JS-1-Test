@@ -11,7 +11,6 @@
 const arr1 = [1, 2, 3];
 const arr2 = [100, 2, 1, 10];
 
-
 const bubbleSort = function (arr) {
   let isSwapped;
   do {
@@ -29,17 +28,30 @@ const bubbleSort = function (arr) {
   return arr;
 }
 
+
 const unionFunction = function (arr1, arr2) {
+  bubbleSort(arr1);
+  bubbleSort(arr2);
   let arr3 = [];
+
   for (let i = 0; i < arr1.length; i++) {
     arr3.push(arr1[i]);
   }
+
   for (let i = 0; i < arr2.length; i++) {
-    arr3.push(arr2[i]);
+    let isInArray3 = false;
+
+    for (let j = 0; j < arr3.length; j++) {
+      if (arr2[i] === arr3[j]) {
+        isInArray3 = true;
+        break;
+      }
+    }
+    if (!isInArray3) {
+      arr3.push(arr2[i]);
+    }
   }
-  arr3 = new Set(arr3);
-  arr3 = [...arr3];
-  bubbleSort(arr3);
-  console.log(arr3);
+  return arr3;
 }
+
 console.log(unionFunction(arr1, arr2));

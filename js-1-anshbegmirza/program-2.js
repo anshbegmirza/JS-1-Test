@@ -6,11 +6,13 @@
 'use strict';
 const arr = [1, 2, [3, 4], [5, [6, 7]]];
 
+console.log(typeof arr[2]);
 
 function flattenArray(arr) {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
+
+    if (typeof arr[i] === 'object') {
       result = result.concat(flattenArray(arr[i]));
     }
     else {
@@ -20,7 +22,15 @@ function flattenArray(arr) {
   return result;
 }
 
+
 console.log(`Original Array:`, arr);
 console.log(flattenArray(arr));
-const trial = flattenArray([1, [2, 3], [3, 4, 5, 6], [3, [4, [4]]]]);
-console.log(trial);
+
+// console.log(`Second input`);
+
+// const trial = flattenArray([1, [2, 3], [3, 4, 5, 6], [3, [4, [4]]]]);
+// console.log(trial);
+
+
+// using array method isArray()
+// (Array.isArray(arr[i]))

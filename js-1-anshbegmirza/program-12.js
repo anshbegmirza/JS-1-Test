@@ -10,9 +10,27 @@
 
 const arr1 = [1, 2, 3];
 const arr2 = [100, 2, 1, 10];
-const uniqueElements = [];
+
+
+const bubbleSort = function (arr) {
+  let isSwapped;
+  do {
+    isSwapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        isSwapped = true;
+      }
+    }
+  }
+  while (isSwapped)
+  return arr;
+}
 
 const differenceFunction = function (arr1, arr2) {
+  let uniqueElements = [];
   for (let i = 0; i < arr1.length; i++) {
     if (arr2.indexOf(arr1[i]) === -1) {
       uniqueElements.push(arr1[i]);
@@ -23,9 +41,12 @@ const differenceFunction = function (arr1, arr2) {
       uniqueElements.push(arr2[i]);
     }
   }
+  bubbleSort(uniqueElements);
   return uniqueElements;
 }
-// console.log(differenceFunction(arr1, arr2));
-const arr3 = [2, 3, 4, 4, 1, 23, 9.76];
-const arr4 = [9, 8, 7, 8, 6, 7, 7, 8, 9, 0, 55];
-console.log(differenceFunction(arr3, arr4));
+
+console.log(differenceFunction(arr2, arr1));
+
+const array4 = [0, 9, 8];
+const array5 = [6, 5, 4, 2];
+console.log(differenceFunction(array4, array5));

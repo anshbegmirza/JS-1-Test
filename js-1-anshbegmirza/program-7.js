@@ -22,25 +22,38 @@ const array = [
   { title: "Java", author: "James" },
 ];
 
-let result = [];
+const ip2 = [
+  { title: "JS", author: "Bjarne" },
+  { title: "C#", author: "James" },
+  { title: "C++", author: "James" },
+  { title: "C++", author: "James" },
+];
 
-for (let i = 0; i < array.length; i++) {
-  let isUnique = false;
+const removeDuplicates = function (array) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    let isUnique = false;
 
-  for (let j = 0; j < result.length; j++) {
-    if (array[i].title === result[j].title) {
-      isUnique = true;
-      break;
+    for (let j = 0; j < result.length; j++) {
+      if (array[i].title === result[j].title) {
+        isUnique = true;
+        break;
+      }
+    }
+    if (!isUnique) {
+      result.push(array[i]);
     }
   }
-  if (!isUnique) {
-    result.push(array[i]);
-  }
+  return result;
 }
 
-console.log(result);
+console.log(removeDuplicates(array));
+console.log(`Second Input`);
+console.log(removeDuplicates(ip2));
 
 
+
+// Method 2
 /*
 //using filter method
 const uniqueElements = array.filter(
